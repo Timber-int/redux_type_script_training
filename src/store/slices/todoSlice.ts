@@ -9,7 +9,7 @@ interface ITodoState {
 }
 
 const initialState: ITodoState = {
-    todos: JSON.parse(localStorage.getItem('todos' ) || '{}') || [],
+    todos: JSON.parse(`${localStorage.getItem('todos' )}`) || [],
     todoDataToUpdate: null,
     key: 'todos'
 }

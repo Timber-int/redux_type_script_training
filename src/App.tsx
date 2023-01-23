@@ -49,11 +49,14 @@ const App = () => {
             </div>
             <div className={'todos_container'}>
                 {
-                    todos.map((todo: ITodo, index) => (
+                   todos && todos.map((todo: ITodo, index) => (
                         <div className={'todo_box'} key={todo.id}>
                             {index + 1})
-                            <input type="checkbox" checked={todo.checked}
-                                   onClick={() => dispatch(todoActions.setChecked({id: todo.id}))}/>
+                            <input type="checkbox"
+                                   checked={todo.checked}
+                                   onChange={() => todo.checked}
+                                   onClick={() => dispatch(todoActions.setChecked({id: todo.id}))}
+                            />
                             <span style={{textDecoration: todo.checked ? 'line-through' : ''}}>{todo.title}</span>
                             <button onClick={() => dispatch(todoActions.deleteTodoById({id: todo.id}))}>Delete</button>
                             <button onClick={() => dispatch(todoActions.setTodoDataToUpdate({todo}))}>Update</button>
